@@ -12,13 +12,14 @@ const Navbar = () => {
     >
       <nav className="flex-1 flex items-center justify-start gap-10 text-[11px] tracking-[0.4em] font-black uppercase pointer-events-auto">
         <a href="#projects" className="hover:opacity-40 transition-opacity">Projects</a>
-        <a href="#about" className="hover:opacity-40 transition-opacity">About</a>
+        <a href="#about" className="hidden md:block hover:opacity-40 transition-opacity">About</a>
       </nav>
 
       {/* Docking space for the Pradeep Molleti logo from App.jsx */}
       <div className="flex-[2] h-full pointer-events-none" />
 
       <nav className="flex-1 flex items-center justify-end gap-10 text-[11px] tracking-[0.4em] font-black uppercase pointer-events-auto">
+        <a href="#about" className="md:hidden hover:opacity-40 transition-opacity">About</a>
         <a href="#contact" className="hidden md:block hover:opacity-40 transition-opacity">Contact</a>
       </nav>
     </motion.header>

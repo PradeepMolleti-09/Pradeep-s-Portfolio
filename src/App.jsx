@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -11,10 +11,21 @@ import Contact from './components/Contact'
 
 function App() {
   const { scrollY } = useScroll();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // DOCKING LOGO LOGIC (Universal visibility across all sections)
   // FIX: Ensuring pure White (#ffffff) as the starting color for 'mix-blend-difference' to work.
-  const logoScale = useTransform(scrollY, [0, 450], [1, 0.22]);
+  const dockedScale = isMobile ? 0.35 : 0.22;
+  const logoScale = useTransform(scrollY, [0, 450], [1, dockedScale]);
   const logoY = useTransform(scrollY, [0, 450], ["250vh", "40px"]);
 
   // Replicating entrance logic for the global logo
