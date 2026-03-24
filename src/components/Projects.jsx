@@ -38,22 +38,32 @@ const Projects = () => {
       <div className="relative grid grid-cols-12 w-full h-full">
 
         {/* LEFT COLUMN: 5 FRAMED IMAGES (Viewport Tracked) */}
-        <div className="col-span-12 md:col-span-4 bg-[#f5f5f5] flex flex-col items-center pt-[15vh] pb-[20vh]" style={{ gap: '5vh' }}>
+        <div className="col-span-12 md:col-span-4 bg-[#f5f5f5] flex flex-col items-center pt-[10vh] md:pt-[15vh] pb-[10vh] md:pb-[20vh] px-6 md:px-0 gap-[4vh] md:gap-[5vh]">
           {projects.map((p, i) => (
             <motion.div
               key={i}
               onViewportEnter={() => setActiveIndex(i)}
               viewport={{ margin: "-30% 0px -30% 0px" }}
-              className="relative w-full h-[80vh] border-[8px] border-white overflow-hidden bg-[#1f1f1f] shadow-sm"
+              className="relative w-full h-[65vh] md:h-[80vh] border-[4px] md:border-[8px] border-white overflow-hidden bg-[#1f1f1f] shadow-sm rounded-lg group"
             >
-              <img src={p.imageL} alt={`Project ${i} context`} className="w-full h-full object-cover opacity-95 hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+              <a href={p.link} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-pointer">
+                <img src={p.imageL} alt={`Project ${i} context`} className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+                
+                {/* Mobile overlay for the best user experience */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent md:hidden flex flex-col items-center justify-end p-6 pb-8 text-center opacity-100 transition-all duration-300">
+                  <h3 className="text-white text-2xl font-black tracking-widest uppercase mb-2 shadow-sm">{p.title}</h3>
+                  <p className="text-white/80 text-xs mb-5 line-clamp-2 max-w-[95%] mx-auto">{p.description}</p>
+                  <span className="px-6 py-3 border border-white/50 bg-white/10 text-white text-xs font-bold tracking-[0.2em] uppercase rounded-full backdrop-blur-sm shadow-xl hover:bg-white hover:text-black transition-all">
+                    View Project
+                  </span>
+                </div>
+              </a>
             </motion.div>
           ))}
         </div>
 
-        {/* MIDDLE COLUMN: PERFECTLY CENTERED STICKY CARD */}
-        {/* Removed vertical borders as requested and maintained flawless sticky boundaries! */}
-        <div className="col-span-12 md:col-span-4 bg-[#f5f5f5] relative pt-[15vh] pb-[20vh]">
+        {/* MIDDLE COLUMN: PERFECTLY CENTERED STICKY CARD - HIDDEN ON MOBILE */}
+        <div className="hidden md:block col-span-12 md:col-span-4 bg-[#f5f5f5] relative pt-[15vh] pb-[20vh]">
           {/* 
             With the root overflow-x-hidden converted to overflow-x-clip, position: sticky behaves flawlessly!
             Setting top-[10vh] mathematically perfectly centers an 80vh card inside a 100vh viewport 
@@ -102,6 +112,8 @@ const Projects = () => {
                   >
                     <a
                       href={activeProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-block border-b border-black/20 group-hover:border-white/40 pb-1 text-[10px] tracking-[0.3em] font-black uppercase text-black/60 group-hover:text-white transition-colors duration-700 hover:!border-black group-hover:hover:!border-white pointer-events-auto cursor-pointer"
                     >
                       VIEW PROJECT
@@ -118,8 +130,8 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: 5 FRAMED IMAGES */}
-        <div className="col-span-12 md:col-span-4 bg-[#f5f5f5] flex flex-col items-center pt-[15vh] pb-[20vh]" style={{ gap: '5vh' }}>
+        {/* RIGHT COLUMN: 5 FRAMED IMAGES - HIDDEN ON MOBILE */}
+        <div className="hidden md:flex col-span-12 md:col-span-4 bg-[#f5f5f5] flex-col items-center pt-[15vh] pb-[20vh] gap-[5vh]">
           {projects.map((p, i) => (
             <div key={i} className="relative w-full h-[80vh] border-[8px] border-white overflow-hidden bg-white shadow-sm">
               <img src={p.imageR} alt={`Project ${i} visuals`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-[1.5s] ease-out" />
