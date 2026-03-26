@@ -3,19 +3,19 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
-    year: "2023 - Present",
+    year: "2025 - Present",
     role: "Full Stack Developer",
     company: "Freelance / Open Source",
     description: "Architecting scalable web solutions and building complex AI-integrated platforms like STARSHOT AI and BRANDPOST AI."
   },
   {
-    year: "2021 - 2023",
+    year: "2024 - 2025",
     role: "Frontend Engineer",
     company: "Tech Startups",
     description: "Developed exceptionally fast, responsive interfaces using cutting-edge modern libraries like React, Next.js, and Framer Motion."
   },
   {
-    year: "2019 - 2021",
+    year: "2022 - 2023",
     role: "UI/UX Designer",
     company: "Creative Agencies",
     description: "Designed stunning user experiences with a focus on minimalist aesthetics, smooth animations, and high conversion."
@@ -31,7 +31,7 @@ const Experience = () => {
         </h2>
         <div className="flex flex-col gap-12 md:gap-16">
           {experiences.map((exp, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
