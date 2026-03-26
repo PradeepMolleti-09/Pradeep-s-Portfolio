@@ -17,7 +17,7 @@ const Projects = () => {
     { id: "02", title: "GO2GETHER", link: "https://go2gether-iota.vercel.app/", description: "Go2Gether is a real-time group navigation platform. It is a modern, interactive travel coordination system with live location tracking and smart safety features.", imageL: "Project21.png", imageR: "Project22.png" },
     { id: "03", title: "SYNOX09", link: "https://synox09.vercel.app/", description: "SyNox09 is a decentralized meeting application. It is a modern, interactive platform that integrated with blockchain technology.", imageL: "Project31.png", imageR: "Project32.png" },
     { id: "04", title: "BRANDFORGE AI", link: "https://brandforgeai09.vercel.app/", description: "An AI-powered app that creates brand-consistent, fully customizable social media posters in seconds.", imageL: "Project41.png", imageR: "Project42.png" },
-    { id: "05", title: "PORTFOLIO", link: "https://pradeep0909.github.io/portfolio/", description: "Creamy, large pearls, the ultimate rarity.", imageL: "Project51.png", imageR: "Project52.png" }
+    { id: "05", title: "PORTFOLIO", link: "https://pradeep-portfolio-09.vercel.app/", description: "Creamy, large pearls, the ultimate rarity.", imageL: "Project51.png", imageR: "Project52.png" }
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -48,7 +48,7 @@ const Projects = () => {
             >
               <a href={p.link} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-pointer">
                 <img src={p.imageL} alt={`Project ${i} context`} className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
-                
+
                 {/* Mobile overlay for the best user experience */}
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent md:hidden flex flex-col items-center justify-end p-6 pb-8 text-center opacity-100 transition-all duration-300">
                   <h3 className="text-white text-2xl font-black tracking-widest uppercase mb-2 shadow-sm">{p.title}</h3>
